@@ -11,5 +11,17 @@
     "electrolux"
   ],
   "author": "Rishabh Chakrabarti",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bassdeveloper/Electrolux-Demo.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "cookie-parser": "^1.4.3",
+    "dot-env": "0.0.1",
+    "express": "^4.14.0",
+    "multer": "^1.2.1",
+    "watson-developer-cloud": "^2.15.2"
+  }
 }
