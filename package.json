@@ -1,0 +1,15 @@
+{
+  "name": "electrolux-source",
+  "version": "1.0.0",
+  "description": "Electrolux Chatbot for practice. IBM-GBS",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm run init && npm run test-unit && npm run casper-runner.js"
+  },
+  "keywords": [
+    "chatbot",
+    "electrolux"
+  ],
+  "author": "Rishabh Chakrabarti",
+  "license": "ISC"
+}

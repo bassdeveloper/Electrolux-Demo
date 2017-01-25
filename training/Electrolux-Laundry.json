@@ -1,0 +1,204 @@
+{
+    "name": "Electrolux Demo",
+    "created": "2017-01-25T05:12:12.376Z",
+    "intents": [{
+        "intent": "greeting",
+        "created": "2017-01-25T05:27:29.656Z",
+        "updated": "2017-01-25T05:27:29.656Z",
+        "examples": [{
+            "text": "Good Morning",
+            "created": "2017-01-25T05:27:29.656Z",
+            "updated": "2017-01-25T05:27:29.656Z"
+        }, {
+            "text": "Hello",
+            "created": "2017-01-25T05:27:29.656Z",
+            "updated": "2017-01-25T05:27:29.656Z"
+        }, {
+            "text": "Hey",
+            "created": "2017-01-25T05:27:29.656Z",
+            "updated": "2017-01-25T05:27:29.656Z"
+        }, {
+            "text": "Hi",
+            "created": "2017-01-25T05:27:29.656Z",
+            "updated": "2017-01-25T05:27:29.656Z"
+        }, {
+            "text": "Hola",
+            "created": "2017-01-25T05:27:29.656Z",
+            "updated": "2017-01-25T05:27:29.656Z"
+        }],
+        "description": null
+    }, {
+        "intent": "help",
+        "created": "2017-01-25T05:14:10.736Z",
+        "updated": "2017-01-25T05:15:35.566Z",
+        "examples": [{
+            "text": "Can you help me out with",
+            "created": "2017-01-25T05:14:36.698Z",
+            "updated": "2017-01-25T05:14:36.698Z"
+        }, {
+            "text": "I am stuck at",
+            "created": "2017-01-25T05:15:09.333Z",
+            "updated": "2017-01-25T05:15:09.333Z"
+        }, {
+            "text": "I need some help with",
+            "created": "2017-01-25T05:15:17.830Z",
+            "updated": "2017-01-25T05:15:17.830Z"
+        }, {
+            "text": "is stuck at",
+            "created": "2017-01-25T05:15:35.566Z",
+            "updated": "2017-01-25T05:15:35.566Z"
+        }, {
+            "text": "Something is wrong with",
+            "created": "2017-01-25T05:15:27.083Z",
+            "updated": "2017-01-25T05:15:27.083Z"
+        }],
+        "description": null
+    }, {
+        "intent": "problem",
+        "created": "2017-01-25T06:42:04.034Z",
+        "updated": "2017-01-25T07:01:27.367Z",
+        "examples": [{
+            "text": "How do I",
+            "created": "2017-01-25T06:42:04.034Z",
+            "updated": "2017-01-25T06:42:04.034Z"
+        }, {
+            "text": "I have a problem with",
+            "created": "2017-01-25T06:42:04.034Z",
+            "updated": "2017-01-25T06:42:04.034Z"
+        }, {
+            "text": "I need help with",
+            "created": "2017-01-25T06:42:04.034Z",
+            "updated": "2017-01-25T06:42:04.034Z"
+        }, {
+            "text": "is not",
+            "created": "2017-01-25T07:01:22.408Z",
+            "updated": "2017-01-25T07:01:22.408Z"
+        }, {
+            "text": "is not working",
+            "created": "2017-01-25T06:42:04.034Z",
+            "updated": "2017-01-25T06:42:04.034Z"
+        }, {
+            "text": "is stuck at",
+            "created": "2017-01-25T06:42:04.034Z",
+            "updated": "2017-01-25T06:42:04.034Z"
+        }, {
+            "text": "not",
+            "created": "2017-01-25T07:01:27.367Z",
+            "updated": "2017-01-25T07:01:27.367Z"
+        }],
+        "description": null
+    }],
+    "updated": "2017-01-25T07:13:00.866Z",
+    "entities": [{
+        "type": null,
+        "entity": "door",
+        "source": null,
+        "values": [{
+            "value": "door",
+            "created": "2017-01-25T07:02:41.255Z",
+            "updated": "2017-01-25T07:02:41.255Z",
+            "metadata": null,
+            "synonyms": []
+        }, {
+            "value": "seal",
+            "created": "2017-01-25T07:02:54.771Z",
+            "updated": "2017-01-25T07:03:10.910Z",
+            "metadata": null,
+            "synonyms": ["gasket", "rubber seal"]
+        }],
+        "created": "2017-01-25T07:02:05.213Z",
+        "updated": "2017-01-25T07:02:05.213Z",
+        "open_list": false,
+        "description": null
+    }, {
+        "type": null,
+        "entity": "draining",
+        "source": null,
+        "values": [{
+            "value": "pumping water",
+            "created": "2017-01-25T06:50:32.960Z",
+            "updated": "2017-01-25T06:50:32.960Z",
+            "metadata": null,
+            "synonyms": ["draining", "not pumping water"]
+        }],
+        "created": "2017-01-25T06:50:02.771Z",
+        "updated": "2017-01-25T06:50:02.771Z",
+        "open_list": false,
+        "description": null
+    }, {
+        "type": null,
+        "entity": "wm",
+        "source": null,
+        "values": [{
+            "value": "Washing Machine",
+            "created": "2017-01-25T06:49:45.629Z",
+            "updated": "2017-01-25T06:49:45.629Z",
+            "metadata": null,
+            "synonyms": []
+        }],
+        "created": "2017-01-25T06:49:11.577Z",
+        "updated": "2017-01-25T06:49:11.577Z",
+        "open_list": false,
+        "description": null
+    }],
+    "language": "en",
+    "metadata": null,
+    "description": "Electrolux Laundry Services with use cases.",
+    "dialog_nodes": [{
+        "go_to": null,
+        "output": null,
+        "parent": null,
+        "context": null,
+        "created": "2017-01-25T05:13:06.701Z",
+        "updated": "2017-01-25T05:13:06.701Z",
+        "metadata": null,
+        "conditions": "anything_else",
+        "description": null,
+        "dialog_node": "node_2_1485321188721",
+        "previous_sibling": "Conversation Start"
+    }, {
+        "go_to": null,
+        "output": null,
+        "parent": "Conversation Start",
+        "context": null,
+        "created": "2017-01-25T07:12:53.602Z",
+        "updated": "2017-01-25T07:12:53.602Z",
+        "metadata": null,
+        "conditions": null,
+        "description": null,
+        "dialog_node": "node_16_1485328374614",
+        "previous_sibling": null
+    }, {
+        "go_to": null,
+        "output": {},
+        "parent": null,
+        "context": null,
+        "created": "2017-01-25T05:12:52.756Z",
+        "updated": "2017-01-25T05:52:27.489Z",
+        "metadata": null,
+        "conditions": "conversation_start",
+        "description": null,
+        "dialog_node": "Conversation Start",
+        "previous_sibling": null
+    }, {
+        "type": "response_condition",
+        "go_to": null,
+        "output": {
+            "text": {
+                "values": ["Hi, I am Source from the Electrolux Laundry Services Department. I am here to help you. Please tell me your name.", "My name is Source. I am from the Laundry Department at Electrolux. Please enter your name."],
+                "selection_policy": "sequential"
+            }
+        },
+        "parent": "Conversation Start",
+        "context": null,
+        "created": "2017-01-25T05:16:24.129Z",
+        "updated": "2017-01-25T06:00:54.939Z",
+        "metadata": null,
+        "conditions": " ",
+        "description": null,
+        "dialog_node": "node_4_1485321386182",
+        "previous_sibling": "node_16_1485328374614"
+    }],
+    "workspace_id": "21998601-947e-4156-9756-5b54e88f3262",
+    "counterexamples": []
+}
