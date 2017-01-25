@@ -4,12 +4,12 @@ declared-services:
     label: conversation
     plan: free
 applications:
-- name: conversation-simple
+- name: electrolux-source
   command: npm start
   path: .
   memory: 256M
   instances: 1
   services:
-  - my-conversation-service
+  - Electrolux-Chatbot
   env:
     NPM_CONFIG_PRODUCTION: false

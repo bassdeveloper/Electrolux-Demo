@@ -18,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.16.0",
+    "cf-blue-green": "^0.2.2",
     "cookie-parser": "^1.4.3",
     "dot-env": "0.0.1",
     "express": "^4.14.0",
