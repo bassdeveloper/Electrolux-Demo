@@ -17,7 +17,7 @@ env:
 before_deploy: npm install -g cf-blue-green
 deploy:
   provider: script
-  script: scripts/cf-blue-green-travis
+  script: chmod +x scripts/cf-blue-green-travis && scripts/cf-blue-green-travis
   on:
     branch: master
     repo: bassdeveloper/Electrolux-Demo
