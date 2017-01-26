@@ -1,15 +1,17 @@
 ---
 declared-services:
-  my-conversation-service:
+  electrolux-source:
     label: conversation
     plan: free
 applications:
 - name: electrolux-source
   command: npm start
   path: .
-  memory: 256M
+  memory: 128M
   instances: 1
+  stack: cflinuxfs2
   services:
-  - Electrolux-Chatbot
+  - electrolux-source
+  domain: mybluemix.net
   env:
     NPM_CONFIG_PRODUCTION: false

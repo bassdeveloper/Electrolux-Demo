@@ -33,7 +33,7 @@ on_fail () {
 
 # pull the up-to-date manifest from the BLUE (existing) application
 MANIFEST=$(mktemp -t "${BLUE}_manifest.XXXXXXXXXX")
-cf create-app-manifest $BLUE -p $MANIFEST
+cp "${BLUE}_manifest.yml" $MANIFEST
 
 # set up try/catch
 # http://stackoverflow.com/a/185900/358804
