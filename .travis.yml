@@ -10,6 +10,7 @@ cache:
 env:
   global:
   - CF_APP=electrolux-source
+  - CF_USERNAME=rishacha@in.ibm.com
   - CF_API=https://api.ng.bluemix.net
   - CF_ORGANIZATION=rishacha@in.ibm.com
   - CF_SPACE=dev
