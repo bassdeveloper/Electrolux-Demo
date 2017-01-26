@@ -21,6 +21,7 @@
     "cf-blue-green": "^0.2.2",
     "cookie-parser": "^1.4.3",
     "dot-env": "0.0.1",
+    "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "multer": "^1.2.1",
     "watson-developer-cloud": "^2.15.2"
