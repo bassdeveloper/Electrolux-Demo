@@ -57,4 +57,4 @@ cf rename $GREEN $BLUE
 cf delete-route $DOMAIN -n $GREEN -f
 finally
 
-echo "DONE"
+echo "DONE"c
