@@ -4,7 +4,6 @@ sudo: required
 node_js: 6
 script:
 - npm run test
-
 cache:
   directories:
   - node_modules
@@ -14,6 +13,7 @@ env:
   - CF_API=https://api.ng.bluemix.net
   - CF_ORGANIZATION=rishacha@in.ibm.com
   - CF_SPACE=dev
+  - secure: b7SC26qmQxCbS0CHvWI+y2/ZtXwkDa/ULLIzNGsbDFrVhc1k6vBTe/hYwJXaxSktdrtPDMM/B20A4T/ap60UWbMYIk4QHmR9tm6t6SY3Emdd9j2FHUninICKr8tgKKQ1id/rwidLG4kVLN9NjqGrLOpvvj9PYgpGTP/NeYbQXBTszqzkdLz3l8my2QGr0X4Nws7uLqAK8KMBK7a5dy6UKtX1OVJFNlmCKUBBXY+KsJP1sbX3agKvx46SxcH0lx4Yhu97tlWoUaIRbKYq9d3F4n/j9RDA7AMDdpG5e/OR/yjMGOJt6LbHQHchuk/kjrV47pJ7zpBt9BKQmstqMmo7P1T+pEohyZv6bS3KuNtNGhD8r++6V+Gfn76V3HcrSGHH4TNfMVYzLNljJXl7UHncZIDkmvWBfxnomLhi8N1w7BYAuMbs2BqpR6v9+zSGeGFqAxfLrdtq0IzmlRbfzn2ZeCkcAwQ8W5Dot3zoUdIk9eS7dQqbA4zNOUOkbpGxbiePPxwR43xmORmHyfPwpiX+gbmEDFkW/fe9F1jWeb2uv8iL/nyYornD41ZB4zuCQjbgaNzzqrJBJRX+Ze3BbGvypDOPjwjgurEkEPzSNsjCDHxT6c0anCN9imlwBJqx+Gs5OFgA/ts2dUBA113q2juupoG+vRht4tb/hw0nKliGO7k=
 before_deploy: npm install -g cf-blue-green
 deploy:
   provider: script
