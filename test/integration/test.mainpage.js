@@ -15,7 +15,7 @@
  */
 /* eslint no-undef: 0 */
 
-casper.test.begin('Conversation simple Demo', 5, function suite(test) {
+casper.test.begin('Electrolux Source Demo', 5, function suite(test) {
     var baseHost = 'http://localhost:3000';
 
     function testWelcomeMessageExists() {
@@ -26,12 +26,12 @@ casper.test.begin('Conversation simple Demo', 5, function suite(test) {
 
     function testEnterMessageClick() {
         casper.then(function () {
-            this.sendKeys('#textInput', 'turn the wipers on');
+            this.sendKeys('#textInput', 'Rishabh Chakrabarti');
             this.sendKeys('#textInput', casper.page.event.key.Enter);
         });
         casper.waitForSelector('.from-user', function () {
             test.assertExists('.message-inner', 'Message sent');
-            test.assertTextExists('turn the wipers on', 'Message in bubble');
+            test.assertTextExists('Rishabh Chakrabarti', 'Message in bubble');
             casper.waitForText('Ok. Turning on the wipers');
         });
     }

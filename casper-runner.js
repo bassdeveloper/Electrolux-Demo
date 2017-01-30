@@ -40,6 +40,8 @@ var server = app.listen(port, function() {
 
     function runTests() {
         var casper = spawn('npm', ['run', 'test-integration']);
+  //      var casper = spawn('cmd', ['/s', '/c', '"C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm"','run', 'test-integration']);
+
         casper.stdout.pipe(process.stdout);
 
         casper.on('error', function(error) {
