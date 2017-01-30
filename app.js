@@ -14,30 +14,46 @@
  * limitations under the License.
  */
 
+// Strict mode enabled.
 'use strict';
 
+// Using Express App Framework
 var express = require('express'); // app server
-var bodyParser = require('body-parser'); // parser for post requests
-var Conversation = require('watson-developer-cloud/conversation/v1'); // watson sdk
 
+// body-parser extracts the entire body portion of an incoming request stream and exposes it on `req.body` as something easier to interface with. It makes it easier to deal with request streams
+var bodyParser = require('body-parser'); // parser for post requests
+
+// Watson SDK v2
+var ConversationV1 = require('watson-developer-cloud/conversation/v1'); // watson sdk
+
+// Initializing app with Express
 var app = express();
 
-// Bootstrap application settings
+// **Bootstrap application settings**
+
+// express.static() - This is the only built-in middleware function in Express. It serves static files and is based on `serve-static`. It works by combining `req.url` with the provided `root` directory.
 app.use(express.static('./public')); // load UI from public folder
+
+// Returns a middleware that only parses `json`.
 app.use(bodyParser.json());
 
 // Create the service wrapper
-var conversation = new Conversation({
+var conversation = new ConversationV1({
   // If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
   // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
   // username: '<username>',
   // password: '<password>',
-    url: 'https://gateway.watsonplatform.net/conversation/api', //url for Conversations latest, from Watson-Developer-Cloud-V2
-    version_date: '2016-10-21',
-    version: 'v1'
+    //url: 'https://gateway.watsonplatform.net/conversation/api', //url for Conversations latest, from Watson-Developer-Cloud-V2
+
+// Outdated params :
+  //version: 'v1'
+  //version_date: '2016-10-21', // outdated version date.
+
+    version_date: ConversationV1.VERSION_DATE_2016_09_20, // according to commit by `nfriendly`. Supported version dates.
+
 });
 
-// Endpoint to be call from the client side
+// Endpoint to be called from the client side
 app.post('/api/message', function(req, res) {
     var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
     if (!workspace || workspace === '<workspace-id>') {
@@ -47,6 +63,8 @@ app.post('/api/message', function(req, res) {
             }
         });
     }
+
+// Here, we design payload as a JSON object to be sent to the function conversation.message().
     var payload = {
         workspace_id: workspace,
         context: req.body.context || {},
@@ -68,6 +86,8 @@ app.post('/api/message', function(req, res) {
  * @param  {Object} response The response from the Conversation service
  * @return {Object}          The response with the updated message
  */
+
+
 function updateMessage(input, response) {
     var responseText = null;
     if (!response.output) {
@@ -94,4 +114,5 @@ function updateMessage(input, response) {
     return response;
 }
 
+// Make `app` as a module.
 module.exports = app;

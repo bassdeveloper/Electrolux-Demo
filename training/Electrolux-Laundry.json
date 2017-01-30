@@ -1,1 +1,335 @@
-{"name":"Electrolux Demo","created":"2017-01-25T05:12:12.376Z","intents":[{"intent":"greeting","created":"2017-01-25T05:27:29.656Z","updated":"2017-01-25T05:27:29.656Z","examples":[{"text":"Good Morning","created":"2017-01-25T05:27:29.656Z","updated":"2017-01-25T05:27:29.656Z"},{"text":"Hello","created":"2017-01-25T05:27:29.656Z","updated":"2017-01-25T05:27:29.656Z"},{"text":"Hey","created":"2017-01-25T05:27:29.656Z","updated":"2017-01-25T05:27:29.656Z"},{"text":"Hi","created":"2017-01-25T05:27:29.656Z","updated":"2017-01-25T05:27:29.656Z"},{"text":"Hola","created":"2017-01-25T05:27:29.656Z","updated":"2017-01-25T05:27:29.656Z"}],"description":null},{"intent":"help","created":"2017-01-25T05:14:10.736Z","updated":"2017-01-25T05:15:35.566Z","examples":[{"text":"Can you help me out with","created":"2017-01-25T05:14:36.698Z","updated":"2017-01-25T05:14:36.698Z"},{"text":"I am stuck at","created":"2017-01-25T05:15:09.333Z","updated":"2017-01-25T05:15:09.333Z"},{"text":"I need some help with","created":"2017-01-25T05:15:17.830Z","updated":"2017-01-25T05:15:17.830Z"},{"text":"is stuck at","created":"2017-01-25T05:15:35.566Z","updated":"2017-01-25T05:15:35.566Z"},{"text":"Something is wrong with","created":"2017-01-25T05:15:27.083Z","updated":"2017-01-25T05:15:27.083Z"}],"description":null},{"intent":"problem","created":"2017-01-25T06:42:04.034Z","updated":"2017-01-25T07:01:27.367Z","examples":[{"text":"How do I","created":"2017-01-25T06:42:04.034Z","updated":"2017-01-25T06:42:04.034Z"},{"text":"I have a problem with","created":"2017-01-25T06:42:04.034Z","updated":"2017-01-25T06:42:04.034Z"},{"text":"I need help with","created":"2017-01-25T06:42:04.034Z","updated":"2017-01-25T06:42:04.034Z"},{"text":"is not","created":"2017-01-25T07:01:22.408Z","updated":"2017-01-25T07:01:22.408Z"},{"text":"is not working","created":"2017-01-25T06:42:04.034Z","updated":"2017-01-25T06:42:04.034Z"},{"text":"is stuck at","created":"2017-01-25T06:42:04.034Z","updated":"2017-01-25T06:42:04.034Z"},{"text":"not","created":"2017-01-25T07:01:27.367Z","updated":"2017-01-25T07:01:27.367Z"}],"description":null}],"updated":"2017-01-27T07:53:45.579Z","entities":[{"type":null,"entity":"appliance","source":null,"values":[{"value":"Dryer","created":"2017-01-27T07:53:22.663Z","updated":"2017-01-27T07:53:22.663Z","metadata":null,"synonyms":[]},{"value":"Washer Dryer","created":"2017-01-27T07:53:15.009Z","updated":"2017-01-27T07:53:45.579Z","metadata":null,"synonyms":[]},{"value":"Washing Machine","created":"2017-01-27T07:00:03.612Z","updated":"2017-01-27T07:00:03.612Z","metadata":null,"synonyms":["Laundry Machine"]}],"created":"2017-01-27T07:00:03.612Z","updated":"2017-01-27T07:00:03.612Z","open_list":false,"description":null},{"type":null,"entity":"door","source":null,"values":[{"value":"door","created":"2017-01-25T07:02:41.255Z","updated":"2017-01-25T07:02:41.255Z","metadata":null,"synonyms":[]},{"value":"seal","created":"2017-01-25T07:02:54.771Z","updated":"2017-01-25T07:03:10.910Z","metadata":null,"synonyms":["gasket","rubber seal"]}],"created":"2017-01-25T07:02:05.213Z","updated":"2017-01-25T07:02:05.213Z","open_list":false,"description":null},{"type":null,"entity":"draining","source":null,"values":[{"value":"pumping water","created":"2017-01-25T06:50:32.960Z","updated":"2017-01-25T06:50:32.960Z","metadata":null,"synonyms":["draining","not pumping water"]}],"created":"2017-01-25T06:50:02.771Z","updated":"2017-01-25T06:50:02.771Z","open_list":false,"description":null}],"language":"en","metadata":null,"description":"Electrolux Laundry Services with use cases.","dialog_nodes":[{"go_to":null,"output":null,"parent":null,"context":null,"created":"2017-01-25T05:13:06.701Z","updated":"2017-01-25T05:13:06.701Z","metadata":null,"conditions":"anything_else","description":null,"dialog_node":"node_2_1485321188721","previous_sibling":"Conversation Start"},{"go_to":null,"output":{},"parent":null,"context":null,"created":"2017-01-25T05:12:52.756Z","updated":"2017-01-25T05:52:27.489Z","metadata":null,"conditions":"conversation_start","description":null,"dialog_node":"Conversation Start","previous_sibling":null},{"go_to":null,"output":{},"parent":"After name","context":null,"created":"2017-01-27T06:35:04.624Z","updated":"2017-01-27T07:50:27.228Z","metadata":null,"conditions":"#problem && @appliance:(Washing Machine)","description":null,"dialog_node":"Washing Machine Problem","previous_sibling":null},{"go_to":null,"output":{},"parent":"After name","context":null,"created":"2017-01-27T07:37:52.629Z","updated":"2017-01-27T07:52:26.233Z","metadata":null,"conditions":"#problem","description":null,"dialog_node":"Dishwasher Problem","previous_sibling":"Washing Machine Problem"},{"go_to":null,"output":{},"parent":"After name","context":null,"created":"2017-01-27T07:38:08.111Z","updated":"2017-01-27T07:38:27.020Z","metadata":null,"conditions":null,"description":null,"dialog_node":"Washer Dryer","previous_sibling":"Dishwasher Problem"},{"go_to":null,"output":{},"parent":"After name","context":null,"created":"2017-01-27T07:39:40.945Z","updated":"2017-01-27T07:40:34.424Z","metadata":null,"conditions":null,"description":null,"dialog_node":"Laundry","previous_sibling":"Washer Dryer"},{"go_to":null,"output":{},"parent":"Washing Machine Problem","context":null,"created":"2017-01-27T07:41:44.113Z","updated":"2017-01-27T07:49:08.569Z","metadata":null,"conditions":"@draining:(pumping water)","description":null,"dialog_node":"WM Problem Responses","previous_sibling":null},{"go_to":null,"output":{"text":{"values":["Hi $name. What's the problem","HOla $name."],"selection_policy":"sequential"}},"parent":"Conversation Start","context":{"name":"<?input.text?>"},"created":"2017-01-25T07:12:53.602Z","updated":"2017-01-27T06:46:07.744Z","metadata":null,"conditions":"true","description":null,"dialog_node":"After name","previous_sibling":null},{"go_to":{"return":null,"selector":"body","dialog_node":"Conversation Start"},"output":{"text":{"values":["Sorry I didn't get you"],"selection_policy":"sequential"}},"parent":"Conversation Start","context":null,"created":"2017-01-27T06:39:46.340Z","updated":"2017-01-27T06:41:10.674Z","metadata":null,"conditions":"anything_else","description":null,"dialog_node":"node_4_1485499189120","previous_sibling":"After name"},{"type":"response_condition","go_to":null,"output":{},"parent":"Washing Machine Problem","context":null,"created":"2017-01-27T07:01:22.018Z","updated":"2017-01-27T07:03:54.360Z","metadata":null,"conditions":" ","description":null,"dialog_node":"node_5_1485500485512","previous_sibling":"WM Problem Responses"},{"type":"response_condition","go_to":null,"output":{"text":{"values":["Water Draining Problem."],"selection_policy":"sequential"}},"parent":"WM Problem Responses","context":null,"created":"2017-01-27T07:42:57.660Z","updated":"2017-01-27T07:49:17.120Z","metadata":null,"conditions":"","description":null,"dialog_node":"node_12_1485502981612","previous_sibling":null},{"type":"response_condition","go_to":null,"output":{"text":{"values":["Hi, I am Source from the Electrolux Laundry Services Department. I am here to help you. Please tell me your name.","My name is Source. I am from the Laundry Department at Electrolux. Please enter your name."],"selection_policy":"sequential"}},"parent":"Conversation Start","context":null,"created":"2017-01-25T05:16:24.129Z","updated":"2017-01-25T06:00:54.939Z","metadata":null,"conditions":" ","description":null,"dialog_node":"node_4_1485321386182","previous_sibling":"node_4_1485499189120"}],"workspace_id":"21998601-947e-4156-9756-5b54e88f3262","counterexamples":[]}
+{
+    "name": "Electrolux Demo",
+    "created": "2017-01-27T12:32:02.491Z",
+    "intents": [{
+        "intent": "greeting",
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "examples": [{
+            "text": "Good Morning",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "Hello",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "Hey",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "Hi",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "Hola",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }],
+        "description": null
+    }, {
+        "intent": "help",
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "examples": [{
+            "text": "Can you help me out with",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "I am stuck at",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "I need some help with",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "is stuck at",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "Something is wrong with",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }],
+        "description": null
+    }, {
+        "intent": "problem",
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "examples": [{
+            "text": "How do I",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "I have a problem with",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "I need help with",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "is not",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "is not working",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "is stuck at",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }, {
+            "text": "not",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z"
+        }],
+        "description": null
+    }],
+    "updated": "2017-01-30T06:00:00.616Z",
+    "entities": [{
+        "type": null,
+        "entity": "appliance",
+        "source": null,
+        "values": [{
+            "value": "Dryer",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z",
+            "metadata": null,
+            "synonyms": []
+        }, {
+            "value": "Washer Dryer",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z",
+            "metadata": null,
+            "synonyms": []
+        }, {
+            "value": "Washing Machine",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z",
+            "metadata": null,
+            "synonyms": ["Laundry Machine"]
+        }],
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "open_list": false,
+        "description": null
+    }, {
+        "type": null,
+        "entity": "door",
+        "source": null,
+        "values": [{
+            "value": "door",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z",
+            "metadata": null,
+            "synonyms": []
+        }, {
+            "value": "seal",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z",
+            "metadata": null,
+            "synonyms": ["gasket", "rubber seal"]
+        }],
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "open_list": false,
+        "description": null
+    }, {
+        "type": null,
+        "entity": "draining",
+        "source": null,
+        "values": [{
+            "value": "pumping water",
+            "created": "2017-01-27T12:32:02.491Z",
+            "updated": "2017-01-27T12:32:02.491Z",
+            "metadata": null,
+            "synonyms": ["draining", "not pumping water"]
+        }],
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "open_list": false,
+        "description": null
+    }],
+    "language": "en",
+    "metadata": null,
+    "description": "Electrolux Laundry Services with use cases.",
+    "dialog_nodes": [{
+        "go_to": null,
+        "output": null,
+        "parent": null,
+        "context": null,
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "metadata": null,
+        "conditions": "anything_else",
+        "description": null,
+        "dialog_node": "node_2_1485321188721",
+        "previous_sibling": "Conversation Start"
+    }, {
+        "go_to": null,
+        "output": {},
+        "parent": null,
+        "context": null,
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "metadata": null,
+        "conditions": "conversation_start",
+        "description": null,
+        "dialog_node": "Conversation Start",
+        "previous_sibling": null
+    }, {
+        "go_to": null,
+        "output": {},
+        "parent": "After name",
+        "context": null,
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "metadata": null,
+        "conditions": null,
+        "description": null,
+        "dialog_node": "Laundry",
+        "previous_sibling": "Washer Dryer"
+    }, {
+        "go_to": null,
+        "output": {},
+        "parent": "After name",
+        "context": null,
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "metadata": null,
+        "conditions": null,
+        "description": null,
+        "dialog_node": "Washer Dryer",
+        "previous_sibling": "Dishwasher Problem"
+    }, {
+        "go_to": null,
+        "output": {},
+        "parent": "After name",
+        "context": null,
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "metadata": null,
+        "conditions": "#problem",
+        "description": null,
+        "dialog_node": "Dishwasher Problem",
+        "previous_sibling": "Washing Machine Problem"
+    }, {
+        "go_to": null,
+        "output": {},
+        "parent": "After name",
+        "context": null,
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "metadata": null,
+        "conditions": "#problem && @appliance:(Washing Machine)",
+        "description": null,
+        "dialog_node": "Washing Machine Problem",
+        "previous_sibling": null
+    }, {
+        "go_to": null,
+        "output": {},
+        "parent": "Washing Machine Problem",
+        "context": null,
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "metadata": null,
+        "conditions": "@draining:(pumping water)",
+        "description": null,
+        "dialog_node": "WM Problem Responses",
+        "previous_sibling": null
+    }, {
+        "go_to": null,
+        "output": {
+            "text": {
+                "values": ["Hi $name. Please tell me what's the problem.", "Hi $name. How may I help you?"],
+                "selection_policy": "sequential"
+            }
+        },
+        "parent": "Conversation Start",
+        "context": {
+            "name": "<?input.text?>"
+        },
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-30T06:00:00.616Z",
+        "metadata": null,
+        "conditions": "true",
+        "description": null,
+        "dialog_node": "After name",
+        "previous_sibling": null
+    }, {
+        "go_to": {
+            "return": null,
+            "selector": "body",
+            "dialog_node": "Conversation Start"
+        },
+        "output": {
+            "text": {
+                "values": ["Sorry I didn't get you"],
+                "selection_policy": "sequential"
+            }
+        },
+        "parent": "Conversation Start",
+        "context": null,
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "metadata": null,
+        "conditions": "anything_else",
+        "description": null,
+        "dialog_node": "node_4_1485499189120",
+        "previous_sibling": "After name"
+    }, {
+        "type": "response_condition",
+        "go_to": null,
+        "output": {},
+        "parent": "Washing Machine Problem",
+        "context": null,
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "metadata": null,
+        "conditions": " ",
+        "description": null,
+        "dialog_node": "node_5_1485500485512",
+        "previous_sibling": "WM Problem Responses"
+    }, {
+        "type": "response_condition",
+        "go_to": null,
+        "output": {
+            "text": {
+                "values": ["<img src=\"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAABlAAAAJGFjMGQ1NmNlLTE0NmYtNDlhYi1iNTI4LTc4YWVmOGY4YzQ3ZQ.jpg\" /> <br> Water Draining Problem."],
+                "selection_policy": "sequential"
+            }
+        },
+        "parent": "WM Problem Responses",
+        "context": null,
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "metadata": null,
+        "conditions": "",
+        "description": null,
+        "dialog_node": "node_12_1485502981612",
+        "previous_sibling": null
+    }, {
+        "type": "response_condition",
+        "go_to": null,
+        "output": {
+            "text": {
+                "values": ["Hi, I am Source from the Electrolux Laundry Services Department. I am here to help you. Please tell me your name.", "My name is Source. I am from the Laundry Department at Electrolux. Please enter your name."],
+                "selection_policy": "sequential"
+            }
+        },
+        "parent": "Conversation Start",
+        "context": null,
+        "created": "2017-01-27T12:32:02.491Z",
+        "updated": "2017-01-27T12:32:02.491Z",
+        "metadata": null,
+        "conditions": " ",
+        "description": null,
+        "dialog_node": "node_4_1485321386182",
+        "previous_sibling": "node_4_1485499189120"
+    }],
+    "workspace_id": "a85ba7d8-e306-4b22-a194-70caafdf8139",
+    "counterexamples": []
+}

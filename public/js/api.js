@@ -38,7 +38,7 @@ var Api = (function() {
             payloadToWatson.context = context;
         }
 
-    // Built http request
+    // Build http request
         var http = new XMLHttpRequest();
         http.open('POST', messageEndpoint, true);
         http.setRequestHeader('Content-type', 'application/json');

@@ -30,9 +30,10 @@ casper.test.begin('Electrolux Source Demo', 5, function suite(test) {
             this.sendKeys('#textInput', casper.page.event.key.Enter);
         });
         casper.waitForSelector('.from-user', function () {
+            var userName = 'Rishabh Chakrabarti';
             test.assertExists('.message-inner', 'Message sent');
-            test.assertTextExists('Rishabh Chakrabarti', 'Message in bubble');
-            casper.waitForText('Ok. Turning on the wipers');
+            test.assertTextExists(userName, 'Message in bubble');
+            casper.waitForText('Hi '+userName+'. Please tell me what\'s the problem.') || casper.waitForText('Hi '+userName+'. How may I help you?');
         });
     }
 

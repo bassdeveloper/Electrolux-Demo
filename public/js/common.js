@@ -3,6 +3,7 @@
 /* eslint no-unused-vars: "off" */
 
 var Common = (function() {
+
   // Publicly accessible methods defined
     return {
         buildDomElement: buildDomElementFromJson,
