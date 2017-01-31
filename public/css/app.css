@@ -8,6 +8,9 @@ body {
   font-family: Helvetica Neue for IBM, Helvetica Neue, Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-image: url("http://content.abt.com/media/brands/electrolux/images/electrolux-brand-516.jpg");
+  background-repeat: no-repeat;
+background-size: cover;
 }
 
 div {
@@ -74,6 +77,7 @@ div {
   text-align: left;
   max-width: 25rem;
   min-width: 9.375rem;
+  background-color: whitesmoke;
 }
 
 #scrollingChat {

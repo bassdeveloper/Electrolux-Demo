@@ -6,3 +6,7 @@ A Chatbot based on Node.js.
 
 
 Which covers the following use cases :
+
+
+## Work flow
+`npm start` → `server.js` →`dotenv : .env`→ `app.js` → `index.html` → `common.js` → `api.js` → `conversation.js` → `payload.js` → `global.js` 
