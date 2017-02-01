@@ -78,6 +78,7 @@ div {
   max-width: 25rem;
   min-width: 9.375rem;
   background-color: whitesmoke;
+  opacity:0.91;
 }
 
 #scrollingChat {
@@ -108,8 +109,9 @@ div {
 }
 
 .load .message-inner {
-  opacity: 1;
+  opacity: 0.67;
   margin-top: 0.3125rem;
+  transition-delay: 1s;
 }
 
 .from-user {
@@ -159,25 +161,35 @@ div {
   width: 0.5rem;
   background: #fff;
   border-top-right-radius: 1.25rem;
+  opacity:0.56;
 }
 
 .from-watson .message-inner {
   position: relative;
   border-radius: 1.5625rem;
   font-size: 1rem;
-  color: #B5B5B5;
+  color: #fff;
   letter-spacing: 0.015rem;
   line-height: 1.3125rem;
+  background: #C91052;
+  border-radius: 1.25rem;
+  border-bottom-left-radius: 0;
+  text-align: left;
+  display: inline-block;
+  /*margin-left: 2.5rem;*/
+  min-width: 2.5rem;
 }
 
 .from-watson.latest .message-inner {
-  color: #323232;
+  color: #fff;
+  opacity:1;
 }
 
 .from-watson p {
   margin: 0.3125rem;
   padding: 0 1.25rem;
 }
+
 
 .from-watson.latest.top p:before {
   content: ".";
@@ -191,6 +203,8 @@ div {
   height: 1.3125rem;
   line-height: 1.3125rem;
 }
+
+
 
 #textInput {
   border: none;
