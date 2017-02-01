@@ -78,7 +78,7 @@ div {
   max-width: 25rem;
   min-width: 9.375rem;
   background-color: whitesmoke;
-  opacity:0.91;
+  opacity:0.95;
 }
 
 #scrollingChat {
@@ -171,7 +171,7 @@ div {
   color: #fff;
   letter-spacing: 0.015rem;
   line-height: 1.3125rem;
-  background: #bc9cb0;
+  background: #b7ce63;
   border-radius: 1.25rem;
   border-bottom-left-radius: 0;
   text-align: left;
@@ -181,7 +181,7 @@ div {
 }
 
 .from-watson.latest .message-inner {
-  color: #fff;
+  color: #606d5d;
   opacity:1;
 }
 

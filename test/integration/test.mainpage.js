@@ -34,7 +34,8 @@ casper.test.begin('Electrolux Source Demo', 5, function suite(test) {
         casper.waitForSelector('.from-user', function () {
             test.assertExists('.message-inner', 'Message sent');
             test.assertTextExists(userName, 'Message in bubble');
-            casper.waitForText('Hi '+userName+'. What\'s the problem') || casper.waitForText('Hi '+userName+'. How may I help you?');
+            casper.waitForText('Hello '+userName+'. How may I help you?');
+            //casper.waitForText('Hi '+userName+'. What\'s the problem');
         });
     }
 
