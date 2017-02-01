@@ -25,22 +25,23 @@ casper.test.begin('Electrolux Source Demo', 5, function suite(test) {
     }
 
     function testEnterMessageClick() {
+        var userName = 'Rishabh Chakrabarti';
+
         casper.then(function () {
-            this.sendKeys('#textInput', 'Rishabh Chakrabarti');
+            this.sendKeys('#textInput', userName);
             this.sendKeys('#textInput', casper.page.event.key.Enter);
         });
         casper.waitForSelector('.from-user', function () {
-            var userName = 'Rishabh Chakrabarti';
             test.assertExists('.message-inner', 'Message sent');
             test.assertTextExists(userName, 'Message in bubble');
-            casper.waitForText('Hi '+userName+'. Please tell me what\'s the problem.') || casper.waitForText('Hi '+userName+'. How may I help you?');
+            casper.waitForText('Hi '+userName+'. What\'s the problem') || casper.waitForText('Hi '+userName+'. How may I help you?');
         });
     }
 
     casper.start(baseHost, function () {
         casper.test.comment('Starting Testing');
         test.assertHttpStatus(200, 'conversation-simple is up');
-        test.assertTitle('Conversation Chat App', 'Title is correct');
+        test.assertTitle('Electrolux-Demo', 'Title is correct');
 
         testWelcomeMessageExists();
         testEnterMessageClick();
