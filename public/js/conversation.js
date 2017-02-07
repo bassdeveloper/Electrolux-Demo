@@ -38,12 +38,33 @@ var ConversationPanel = (function() {
             displayMessage(JSON.parse(newPayloadStr), settings.authorTypes.user);
         };
 
-        var currentResponsePayloadSetter = Api.setResponsePayload;
+        var currentResponsePayloadSetter =  Api.setResponsePayload;
         Api.setResponsePayload = function(newPayloadStr) {
             currentResponsePayloadSetter.call(Api, newPayloadStr);
-            displayMessage(JSON.parse(newPayloadStr), settings.authorTypes.watson);
+            var payloadNew = JSON.parse(newPayloadStr);
+            if(payloadNew.context.discovery === 'true'){
+              console.log(Api.getRequestPayload());
+              var currentWDSReqPayload = Api.getRequestPayload();
+              var latestWatsonResponse = Api.getResponsePayload();
+              console.log("User input: "+currentWDSReqPayload.input.text);
+              // console.log(payloadNew.context.discovery);
+              displayMessage(payloadNew, settings.authorTypes.watson);
+              var discoveryTestPayload ={};
+              discoveryTestPayload.output = {
+                text : 'Just a minute, let me look it up for you.'
+              };
+
+              displayMessage(discoveryTestPayload,settings.authorTypes.watson);
+
+              Discovery.sendRequest(currentWDSReqPayload.input,latestWatsonResponse.context);
+            }
+            else {
+              console.log("Payload:"+JSON.stringify(payloadNew));
+              displayMessage(payloadNew, settings.authorTypes.watson);
+            }
         };
     }
+
 
 // Set up the input box to underline text as it is typed
   // This is done by creating a hidden dummy version of the input box that

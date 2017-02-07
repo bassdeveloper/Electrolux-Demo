@@ -41,7 +41,7 @@ casper.test.begin('Electrolux Source Demo', 5, function suite(test) {
 
     casper.start(baseHost, function () {
         casper.test.comment('Starting Testing');
-        test.assertHttpStatus(200, 'conversation-simple is up');
+        test.assertHttpStatus(200, 'Electrolux-Demo is up');
         test.assertTitle('Electrolux-Demo', 'Title is correct');
 
         testWelcomeMessageExists();

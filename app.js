@@ -24,7 +24,46 @@ var express = require('express'); // app server
 var bodyParser = require('body-parser'); // parser for post requests
 
 // Watson SDK v2
+//var watson = require('watson-developer-cloud');
+
 var ConversationV1 = require('watson-developer-cloud/conversation/v1'); // watson sdk
+
+// Create the Conversation service wrapper
+var conversation = new ConversationV1({
+  // If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
+  // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
+  // username: '<username>',
+  // password: '<password>',
+    //url: 'https://gateway.watsonplatform.net/conversation/api', //url for Conversations latest, from Watson-Developer-Cloud-V2
+
+// Outdated params :
+  // version: 'v1'
+  // version_date: '2016-10-21', // outdated version date.
+
+    version_date: ConversationV1.VERSION_DATE_2016_09_20, // according to commit by `nfriendly`. Supported version dates.
+
+});
+
+var queryBuilder = require('./querybuilder');
+//Create the Discovery service wrapper
+var DiscoveryV1 = require('watson-developer-cloud/discovery/v1');
+
+var discovery = new DiscoveryV1({
+  // If unspecified here, the DISCOVERY_USERNAME and
+  // DISCOVERY_PASSWORD env properties will be checked
+  // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
+  // username: '<username>',
+  // password: '<password>',
+  version_date: '2016-11-09',
+  path: {
+    environment_id: process.env.ENVIRONMENT_ID || '<environment-id>',
+    collection_id: process.env.COLLECTION_ID || '<collection-id>',
+  },
+  qs: {
+    aggregation: `[${queryBuilder.aggregations.join(',')}]`
+  },
+});
+
 
 // Initializing app with Express
 var app = express();
@@ -37,24 +76,11 @@ app.use(express.static('./public')); // load UI from public folder
 // Returns a middleware that only parses `json`.
 app.use(bodyParser.json());
 
-// Create the service wrapper
-var conversation = new ConversationV1({
-  // If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
-  // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-  // username: '<username>',
-  // password: '<password>',
-    //url: 'https://gateway.watsonplatform.net/conversation/api', //url for Conversations latest, from Watson-Developer-Cloud-V2
-
-// Outdated params :
-  //version: 'v1'
-  //version_date: '2016-10-21', // outdated version date.
-
-    version_date: ConversationV1.VERSION_DATE_2016_09_20, // according to commit by `nfriendly`. Supported version dates.
-
-});
+// Route Configuration
 
 // Endpoint to be called from the client side
-app.post('/api/message', function(req, res) {
+app.post('/api/message', (req, res) => {
+    // Check if Conversation Workspace is present or not :
     var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
     if (!workspace || workspace === '<workspace-id>') {
         return res.json({
@@ -72,7 +98,7 @@ app.post('/api/message', function(req, res) {
     };
 
   // Send the input to the conversation service
-    conversation.message(payload, function(err, data) {
+    conversation.message(payload, (err, data) => {
         if (err) {
             return res.status(err.code || 500).json(err);
         }
@@ -113,6 +139,42 @@ function updateMessage(input, response) {
     response.output.text = responseText;
     return response;
 }
+
+app.post('/api/discovery', (req,res)=>{
+  console.log("In route discovery");
+  const params = queryBuilder.build(req.body.input.text);
+  console.log(params);
+  discovery.query(params, (error, response) => {
+     if (error) {
+       console.log('Error in Discovery');
+       next(error);
+     } else {
+       console.log(JSON.stringify(response));
+       res.json(response);
+     }
+   });
+ });
+
+
+
+// (err, data) => {
+//       if (err) {
+//           return res.status(err.code || 500).json(err);
+//       }
+//       return res.json(updateMessage(params, data));
+//   });
+// });
+//
+//  (error, response) => {
+//     if (error) {
+//       console.log('Error in Discovery');
+//       next(error);
+//     } else {
+//       console.log(JSON.stringify(response));
+//       res.json(response);
+//     }
+//   });
+// });
 
 // Make `app` as a module.
 module.exports = app;
